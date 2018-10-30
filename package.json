@@ -1,18 +1,19 @@
 {
   "name": "project-car-reference-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project Car Reference web app API",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hyperrex/project-car-reference-api.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Wendell Yamada",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/hyperrex/project-car-reference-api/issues"
   },
