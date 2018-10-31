@@ -8,10 +8,8 @@ exports.up = function(knex) {
     table.string('last_name', 30).notNullable().defaultsTo('');
     // email
     table.string('email', 255).notNullable().defaultsTo('');
-    // user name
-    table.string('user_name', 30).notNullable().defaultsTo('');
     // hashed password
-    table.string('hashed_password', 72).notNullable().defaultsTo('');
+    // table.string('hashed_password', 72).notNullable().defaultsTo('');
     // Timestamps
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
