@@ -1,8 +1,23 @@
-
-exports.up = function(knex, Promise) {
-  
+exports.up = function(knex) {
+  return knex.schema.createTable('users', function(table) {
+    // id
+    table.increments();
+    // first name
+    table.string('first_name', 30).notNullable().defaultsTo('');
+    // last name
+    table.string('last_name', 30).notNullable().defaultsTo('');
+    // email
+    table.string('email', 255).notNullable().defaultsTo('');
+    // user name
+    table.string('user_name', 30).notNullable().defaultsTo('');
+    // hashed password
+    table.string('hashed_password', 72).notNullable().defaultsTo('');
+    // Timestamps
+    table.timestamp('created_at').defaultTo(knex.fn.now());
+    table.timestamp('updated_at').defaultTo(knex.fn.now());
+  });
 };
 
-exports.down = function(knex, Promise) {
-  
+exports.down = function(knex) {
+  return knex.schema.dropTable('users');
 };
