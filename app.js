@@ -9,11 +9,13 @@ if (process.env.NODE_ENV !== 'test') app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-// const usersRoutes = require('./src/routes/users.js');
-// const projectsRoutes = require('./src/routes/projects.js');
+const photosRoutes = require('./src/routes/photos_routes.js');
+const projectsRoutes = require('./src/routes/projects_routes.js');
+const usersRoutes = require('./src/routes/users_routes.js');
 
-// app.use('/users', usersRoutes);
-// app.use('/projects', projectsRoutes);
+app.use('/photos', photosRoutes);
+app.use('/projects', projectsRoutes);
+app.use('/users', usersRoutes);
 
 /**** Error Handling ****/
 app.all('*', (req, res, next) => res.sendStatus(404));
