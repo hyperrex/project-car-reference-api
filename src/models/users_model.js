@@ -10,6 +10,11 @@ const getUserById = async id => {
   return userById;
 };
 
+const getUserByEmail = async email => {
+  const userByEmail = await query.getUserByEmail(email);
+  return userByEmail;
+};
+
 const createUser = async User => {
   const newUser = await query.createUser(User);
   return newUser;
@@ -28,6 +33,7 @@ const deleteUser = async id => {
 module.exports = {
   getAllUsers,
   getUserById,
+  getUserByEmail,
   createUser,
   updateUser,
   deleteUser

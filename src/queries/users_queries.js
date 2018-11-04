@@ -8,6 +8,10 @@ const getUserById = async id => {
   return await knex('users').where('id', id);
 };
 
+const getUserByEmail = async email => {
+  return await knex('users').where('email', email);
+};
+
 const createUser = async body => {
   return await knex('users')
     .insert(body)
@@ -51,7 +55,17 @@ const deleteUser = async id => {
 module.exports = {
   getAllUsers,
   getUserById,
+  getUserByEmail,
   createUser,
   updateUser,
   deleteUser
 };
+
+/*
+  validateUser = (userInfo) => {
+    return knex('users')
+        .select(['users.id', 'users.name'])
+        .where('users.email', userInfo.email)
+        .where('users.password', userInfo.password)
+  }
+*/

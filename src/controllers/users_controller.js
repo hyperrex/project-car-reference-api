@@ -50,10 +50,38 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
+// tryLogin >> req.body
+const tryLogin = async (req, res, next) => {
+  try {
+    const credentials = req.body;
+    if (! credentials.email || !credentials.password) {
+      return res.status(400).json( { error: 'You must enter a name and password!' });
+    }
+    const userExists = await model.getUserByEmail(req.body.email);
+    if (!userExists) {
+      return res.status(400).json( { error: 'User does not exist!' });
+    }
+    const user = await model.tryLogin(req.body);
+    return res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  tryLogin
 };
+
+/**
+ * look to see if user exists
+ * is there req.body email and password
+ * invoke getByUserEmail
+ * if no user error
+ * if usr but wrong password, error
+ * if user and passwords match, create jwt and respond 200 ok, token in header, user obj
+ */
