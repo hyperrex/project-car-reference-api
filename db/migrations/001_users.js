@@ -9,7 +9,7 @@ exports.up = function(knex) {
     // email
     table.string('email', 255).notNullable().defaultsTo('');
     // hashed password
-    // table.string('hashed_password', 72).notNullable().defaultsTo('');
+    table.string('hashed_password', 60).notNullable().defaultsTo('');
     // Timestamps
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
