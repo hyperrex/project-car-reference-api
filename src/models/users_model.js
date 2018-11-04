@@ -30,11 +30,17 @@ const deleteUser = async id => {
   return deletedUser;
 };
 
+const tryLogin = async (email, hash) => {
+  const users = await query.tryLogin(email, hash);
+  return users;
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   getUserByEmail,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  tryLogin
 };

@@ -52,13 +52,20 @@ const deleteUser = async id => {
     });
 };
 
+const tryLogin = async (email, hash) => {
+  return await knex('users')
+    .where(email, email)
+    .where(hash, hash);
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   getUserByEmail,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  tryLogin
 };
 
 /*

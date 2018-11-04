@@ -53,15 +53,14 @@ const deleteUser = async (req, res, next) => {
 // tryLogin >> req.body
 const tryLogin = async (req, res, next) => {
   try {
-    const credentials = req.body;
-    if (! credentials.email || !credentials.password) {
+    if (! req.body.email || !req.body.password) {
       return res.status(400).json( { error: 'You must enter a name and password!' });
     }
     const userExists = await model.getUserByEmail(req.body.email);
     if (!userExists) {
       return res.status(400).json( { error: 'User does not exist!' });
     }
-    const user = await model.tryLogin(req.body);
+    const user = await model.tryLogin(req.body.email, req.body.hash);
     return res.status(200).json(user);
   } catch (error) {
     console.log(error);
