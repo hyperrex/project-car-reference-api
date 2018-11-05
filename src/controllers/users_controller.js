@@ -27,6 +27,15 @@ const getUserById = async (req, res, next) => {
 // createUser >> req.body
 const createUser = async (req, res, next) => {
   try {
+    const checkEmail = await model.getUserByEmail(req.body.email);
+    console.log('>>>>', checkEmail);
+    if (checkEmail == []) {
+      return res.status(401).json({ error: 'Email already taken.' });
+    }
+    const hashed = bcrypt.hashSync(req.body.password, salt);
+    delete req.body.password;
+    req.body.hash = hashed;
+
     const user = await model.createUser(req.body);
     return res.status(201).json(user);
   } catch (error) {
