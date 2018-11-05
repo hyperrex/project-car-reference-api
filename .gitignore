@@ -88,8 +88,8 @@ typings/
 # dotenv environment variables file
 .env
 
-# # JWT for developmemnt environment variables file
-# env.js
+# JWT for developmemnt environment variables file
+env.js
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
