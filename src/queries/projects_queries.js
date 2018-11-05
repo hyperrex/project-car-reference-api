@@ -5,7 +5,18 @@ const getAllProjects = async () => {
 };
 
 const getProjectById = async id => {
-  return await knex('projects').where('id', id);
+  return await knex('projects')
+    .where('projects.id', id)
+    .first()
+    .then(result => {
+      return knex('user_project')
+        .join('users', 'users.id', '=', 'user_project.users_id')
+        .where('users_id', id)
+        .then(users => {
+          result.users = users;
+          return result;
+        });
+    });
 };
 
 const createProject = async body => {

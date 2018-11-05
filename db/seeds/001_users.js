@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Malcolm',
           last_name: 'Reynolds',
           email: 'tightpants@serenity.com',
-          hash: '$2a$10$PSUktwI9rIRCUR76qqMebuX7blSMkaS3EMrnEeU59NiQ4wb2WL1D2'
+          hash: '$2a$10$fmwEbtzfb9/xA45LScpiO.KoveXZJby8Wh6BkK.cnLh2QNxL8e2BO'
         },
         {
           id: 2,

@@ -7,7 +7,11 @@ const cors = require('cors');
 
 if (process.env.NODE_ENV !== 'test') app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    exposedHeaders: ['authorization']
+  })
+);
 
 const photosRoutes = require('./src/routes/photos_routes.js');
 const projectsRoutes = require('./src/routes/projects_routes.js');
@@ -26,7 +30,9 @@ app.use((err, req, res, next) => {
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {
-    console.log(`She may not look like much but she's got it where it counts on port ${port}!`);
+    console.log(
+      `She may not look like much but she's got it where it counts on port ${port}!`
+    );
   });
 }
 
