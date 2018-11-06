@@ -28,7 +28,6 @@ const getUserById = async (req, res, next) => {
 const createUser = async (req, res, next) => {
   try {
     const checkEmail = await model.getUserByEmail(req.body.email);
-    console.log('>>>>', checkEmail);
     if (checkEmail == []) {
       return res.status(401).json({ error: 'Email already taken.' });
     }
