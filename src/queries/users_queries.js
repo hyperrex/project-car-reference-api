@@ -12,6 +12,11 @@ const getUserByEmail = async email => {
   return await knex('users').where('email', email);
 };
 
+const getUserProjects = async id => {
+  return await knex('user_project')
+    .where('users_id', id)
+};
+
 const createUser = async body => {
   return await knex('users')
     .insert(body)
@@ -52,27 +57,12 @@ const deleteUser = async id => {
     });
 };
 
-// const tryLogin = async (email, hash) => {
-//   return await knex('users')
-//     .where(email, email)
-//     .where(hash, hash);
-// };
-
 module.exports = {
   getAllUsers,
   getUserById,
   getUserByEmail,
+  getUserProjects,
   createUser,
   updateUser,
   deleteUser
-  // tryLogin
 };
-
-/*
-  validateUser = (userInfo) => {
-    return knex('users')
-        .select(['users.id', 'users.name'])
-        .where('users.email', userInfo.email)
-        .where('users.password', userInfo.password)
-  }
-*/

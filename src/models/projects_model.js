@@ -10,11 +10,6 @@ const getProjectById = async id => {
   return projectById;
 };
 
-const getProjectsByUser = async user => {
-  const projectsByUser = await query.getProjectsByUser(user);
-  return projectsByUser;
-};
-
 const createProject = async Project => {
   const newProject = await query.createProject(Project);
   return newProject;
@@ -33,8 +28,22 @@ const deleteProject = async id => {
 module.exports = {
   getAllProjects,
   getProjectById,
-  getProjectsByUser,
   createProject,
   updateProject,
   deleteProject
 };
+
+// const getProjectsByUser = async user => {
+//   return await knex('user_project')
+//     .where('user.id', user)
+//     .first()
+//     .then(result => {
+//       return knex('user_project')
+//         .join('users', 'users.id', '=', 'user_project.users_id')
+//         .where('users_id', id)
+//         .then(users => {
+//           result.users = users;
+//           return result;
+//         });
+//     });
+// };

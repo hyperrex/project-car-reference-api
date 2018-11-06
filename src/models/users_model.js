@@ -15,6 +15,11 @@ const getUserByEmail = async email => {
   return userByEmail;
 };
 
+const getUserProjects = async user => {
+  const userProjects = await query.getUserProjects(user);
+  return userProjects;
+};
+
 const createUser = async User => {
   const newUser = await query.createUser(User);
   return newUser;
@@ -30,17 +35,12 @@ const deleteUser = async id => {
   return deletedUser;
 };
 
-// const tryLogin = async (email, hash) => {
-//   const users = await query.tryLogin(email, hash);
-//   return users;
-// };
-
 module.exports = {
   getAllUsers,
   getUserById,
   getUserByEmail,
+  getUserProjects,
   createUser,
   updateUser,
   deleteUser
-  // tryLogin
 };

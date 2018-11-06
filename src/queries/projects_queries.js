@@ -7,32 +7,8 @@ const getAllProjects = async () => {
 const getProjectById = async id => {
   return await knex('projects')
     .where('projects.id', id)
-    .first()
-    .then(result => {
-      return knex('user_project')
-        .join('users', 'users.id', '=', 'user_project.users_id')
-        .where('users_id', id)
-        .then(users => {
-          result.users = users;
-          return result;
-        });
-    });
+    .orderBy('created_at');
 };
-
-// const getProjectsByUser = async user => {
-//   return await knex('user_project')
-//     .where('user.id', user)
-//     .first()
-//     .then(result => {
-//       return knex('user_project')
-//         .join('users', 'users.id', '=', 'user_project.users_id')
-//         .where('users_id', id)
-//         .then(users => {
-//           result.users = users;
-//           return result;
-//         });
-//     });
-// };
 
 const createProject = async body => {
   return await knex('projects')

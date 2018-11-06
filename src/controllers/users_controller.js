@@ -105,11 +105,22 @@ const tryLogin = async (req, res, next) => {
   }
 };
 
+// getUserProjects
+const getUserProjects = async (req, res, next) => {
+  try {
+    const userProjects = await model.getUserProjects(req.params.id);
+    return res.status(200).json(userProjects);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
-  tryLogin
+  tryLogin,
+  getUserProjects
 };
