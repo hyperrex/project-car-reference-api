@@ -15,6 +15,7 @@ const getUserByEmail = async email => {
 const getUserProjects = async id => {
   return await knex('user_project')
     .where('users_id', id)
+    .join('projects', 'projects.id', '=', 'user_project.projects_id');
 };
 
 const createUser = async body => {
