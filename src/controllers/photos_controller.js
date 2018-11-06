@@ -20,6 +20,17 @@ const getPhotoById = async (req, res, next) => {
   }
 };
 
+// getPhotoByProject
+const getPhotosByProject = async (req, res, next) => {
+  try {
+    console.log(req.params);
+    const photosByProject = await model.getPhotosByProject(req.params.projects_id);
+    return res.status(200).json(photosByProject);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // createPhoto >> req.body
 const createPhoto = async (req, res, next) => {
   try {
@@ -53,6 +64,7 @@ const deletePhoto = async (req, res, next) => {
 module.exports = {
   getAllPhotos,
   getPhotoById,
+  getPhotosByProject,
   createPhoto,
   updatePhoto,
   deletePhoto

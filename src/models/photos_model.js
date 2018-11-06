@@ -10,6 +10,11 @@ const getPhotoById = async id => {
   return photoById;
 };
 
+const getPhotosByProject = async proj => {
+  const photosByProject = await query.getPhotosByProject(proj);
+  return photosByProject;
+};
+
 const createPhoto = async Photo => {
   const newPhoto = await query.createPhoto(Photo);
   return newPhoto;
@@ -28,6 +33,7 @@ const deletePhoto = async id => {
 module.exports = {
   getAllPhotos,
   getPhotoById,
+  getPhotosByProject,
   createPhoto,
   updatePhoto,
   deletePhoto

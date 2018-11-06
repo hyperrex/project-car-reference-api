@@ -8,6 +8,10 @@ const getPhotoById = async id => {
   return await knex('photos').where('id', id);
 };
 
+const getPhotosByProject = async proj => {
+  return await knex('photos').where('projects_id', proj);
+};
+
 const createPhoto = async body => {
   return await knex('photos')
     .insert(body)
@@ -51,6 +55,7 @@ const deletePhoto = async id => {
 module.exports = {
   getAllPhotos,
   getPhotoById,
+  getPhotosByProject,
   createPhoto,
   updatePhoto,
   deletePhoto
