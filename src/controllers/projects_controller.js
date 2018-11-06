@@ -20,6 +20,16 @@ const getProjectById = async (req, res, next) => {
   }
 };
 
+// getProjectsByUser
+const getProjectsByUser = async (req, res, next) => {
+  try {
+    const projectsByUser = await model.getProjectsByUser(req.params.id);
+    return res.status(200).json(projectsByUser);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // createProject >> req.body
 const createProject = async (req, res, next) => {
   try {
@@ -29,6 +39,8 @@ const createProject = async (req, res, next) => {
     console.log(error);
   }
 };
+
+// AddUserToProject >> user_project
 
 // updateProject >> req.params.id, req.body
 const updateProject = async (req, res, next) => {
@@ -53,6 +65,7 @@ const deleteProject = async (req, res, next) => {
 module.exports = {
   getAllProjects,
   getProjectById,
+  getProjectsByUser,
   createProject,
   updateProject,
   deleteProject

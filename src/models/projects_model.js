@@ -10,6 +10,11 @@ const getProjectById = async id => {
   return projectById;
 };
 
+const getProjectsByUser = async user => {
+  const projectsByUser = await query.getProjectsByUser(user);
+  return projectsByUser;
+};
+
 const createProject = async Project => {
   const newProject = await query.createProject(Project);
   return newProject;
@@ -28,6 +33,7 @@ const deleteProject = async id => {
 module.exports = {
   getAllProjects,
   getProjectById,
+  getProjectsByUser,
   createProject,
   updateProject,
   deleteProject

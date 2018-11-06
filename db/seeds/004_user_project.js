@@ -29,6 +29,21 @@ exports.seed = function(knex, Promise) {
           id: 5,
           users_id: 5,
           projects_id: 5
+        },
+        {
+          id: 6,
+          users_id: 4,
+          projects_id: 3
+        },
+        {
+          id: 7,
+          users_id: 2,
+          projects_id: 3
+        },
+        {
+          id: 8,
+          users_id: 1,
+          projects_id: 2
         }
       ]);
     })
