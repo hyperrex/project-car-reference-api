@@ -7,7 +7,15 @@ const getAllProjects = async () => {
 const getProjectById = async id => {
   return await knex('projects')
     .where('projects.id', id)
-    .orderBy('created_at');
+    .first()
+    .then(result => {
+      return knex('photos')
+        .where('photos.projects_id', id)
+        .then(photos => {
+          result.photos = photos;
+          return result;
+        });
+    });
 };
 
 const createProject = async body => {
