@@ -3,7 +3,7 @@ exports.up = function(knex) {
     // id
     table.increments();
     // name
-    table.string('name', 60).defaultsTo('');
+    table.string('title', 60).defaultsTo('');
     // description
     table.text('description').defaultsTo('');
     // Timestamps

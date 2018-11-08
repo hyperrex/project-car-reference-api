@@ -8,29 +8,29 @@ exports.seed = function(knex, Promise) {
       return knex('projects').insert([
         {
           id: 1,
-          name: 'Emissions and Turbo Control Re-Installation',
+          title: 'Emissions and Turbo Control Re-Installation',
           description: 'Diagrams needed for re-installation of emissions and twin turbo control system.'
         },
         {
           id: 2,
-          name: 'Suspension Notes',
+          title: 'Suspension Notes',
           description:
             'Reminder of how I set the rear suspension links.'
         },
         {
           id: 3,
-          name: 'Dashboard disassembly',
+          title: 'Dashboard disassembly',
           description: 'Reference photos of dashboard electronics routing'
         },
         {
           id: 4,
-          name: 'ECM rewire',
+          title: 'ECM rewire',
           description:
             'Reference for ECM wiring.'
         },
         {
           id: 5,
-          name: 'Stuff to replace',
+          title: 'Stuff to replace',
           description: 'Pictures of things that need research before replacing.'
         }
       ]);
