@@ -16,10 +16,12 @@ app.use(
 const photosRoutes = require('./src/routes/photos_routes.js');
 const projectsRoutes = require('./src/routes/projects_routes.js');
 const usersRoutes = require('./src/routes/users_routes.js');
+const userProjectRoutes = require('./src/routes/user_project_routes.js');
 
 app.use('/photos', photosRoutes);
 app.use('/projects', projectsRoutes);
 app.use('/users', usersRoutes);
+app.use('/userProject', userProjectRoutes);
 
 /**** Error Handling ****/
 app.all('*', (req, res, next) => res.sendStatus(404));

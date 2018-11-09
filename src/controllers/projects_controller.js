@@ -30,8 +30,6 @@ const createProject = async (req, res, next) => {
   }
 };
 
-// AddUserToProject >> user_project
-
 // updateProject >> req.params.id, req.body
 const updateProject = async (req, res, next) => {
   try {

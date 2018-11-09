@@ -32,18 +32,3 @@ module.exports = {
   updateProject,
   deleteProject
 };
-
-// const getProjectsByUser = async user => {
-//   return await knex('user_project')
-//     .where('user.id', user)
-//     .first()
-//     .then(result => {
-//       return knex('user_project')
-//         .join('users', 'users.id', '=', 'user_project.users_id')
-//         .where('users_id', id)
-//         .then(users => {
-//           result.users = users;
-//           return result;
-//         });
-//     });
-// };
