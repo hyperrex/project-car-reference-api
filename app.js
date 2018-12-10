@@ -22,6 +22,10 @@ app.use('/photos', photosRoutes);
 app.use('/projects', projectsRoutes);
 app.use('/users', usersRoutes);
 app.use('/userProject', userProjectRoutes);
+// wildcard route
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/../client', 'build', 'index.html'));
+// });
 
 /**** Error Handling ****/
 app.all('*', (req, res, next) => res.sendStatus(404));

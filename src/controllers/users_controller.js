@@ -65,6 +65,7 @@ const deleteUser = async (req, res, next) => {
 // tryLogin >> req.body
 const tryLogin = async (req, res, next) => {
   try {
+    console.log('Request body >>>>>', req.body);
     if (!req.body.email || !req.body.password) {
       return res
         .status(400)
